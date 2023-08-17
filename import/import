@@ -16,7 +16,8 @@ client = weaviate.Client(
     auth_client_secret=auth_config,
     additional_headers={
         "X-Cohere-Api-Key": os.environ['COHERE_API_KEY'],
-    }
+#h7mciTt201Bgip5J6qKz8lep8oF69RBfdcmkFIpA    
+}
 )
 
 client.is_ready()
