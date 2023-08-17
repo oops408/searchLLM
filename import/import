@@ -1,0 +1,22 @@
+# !pip install cohere
+# !pip install weaviate-client
+
+import os
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv()) # read local .env file
+
+import weaviate
+auth_config = weaviate.auth.AuthApiKey(
+    api_key=os.environ['WEAVIATE_API_KEY'])
+#76320a90-53d8-42bc-b41d-678647c6672e
+
+client = weaviate.Client(
+    url=os.environ['WEAVIATE_API_URL'],
+    #https://cohere-deno.weviate.network/
+    auth_client_secret=auth_config,
+    additional_headers={
+        "X-Cohere-Api-Key": os.environ['COHERE_API_KEY'],
+    }
+)
+
+client.is_ready()
